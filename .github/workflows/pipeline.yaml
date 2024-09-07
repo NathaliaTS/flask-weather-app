@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  REPO_NAME: ${{ github.event.repository.name }}     
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,8 +25,8 @@ jobs:
       - name: Build Docker image
         run: |
           # Extraindo apenas o nome do repositório
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/$GITHUB_REPOSITORY:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/$REPO_NAME:latest .
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/$GITHUB_REPOSITORY:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/$REPO_NAME:latest
