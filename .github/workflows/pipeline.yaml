@@ -20,5 +20,5 @@ jobs:
 
       - name: Build Docker Image and Push for Docker Hub
         uses: NathaliaTS/build-push-dockerhub-action@hello-world
-        with:
-          name: ${{ env.REPO_NAME }}
+        # with:
+        #   name: ${{ env.REPO_NAME }}
